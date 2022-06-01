@@ -1,38 +1,249 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-Regular.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-RegularOblique.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-RegularOblique.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-Light.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-Light.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-LightOblique.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-LightOblique.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 300;
+  font-style: italic;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-Medium.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-Medium.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-MediumOblique.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-MediumOblique.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-Bold.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-Bold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-BoldOblique.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-BoldOblique.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-Black.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-Black.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GTWalsheimPro";
+  src: local("GTWalsheimPro-BlackOblique.ttf"), url("/src/assets/fonts/gt-walsheim-pro/GTWalsheimPro-BlackOblique.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Light.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Light.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Italic.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Regular.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Italic.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Medium.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Medium.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Medium Italic.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Medium Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A SemiBold.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A SemiBold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A SemiBold Italic.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A SemiBold Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Bold.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Bold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularA";
+  src: local("Euclid Circular A Bold Italic.ttf"), url("/src/assets/fonts/euclid-a/Euclid Circular A Bold Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Light.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Light.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Italic.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Regular.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Italic.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Medium.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Medium.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Medium Italic.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Medium Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B SemiBold.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B SemiBold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B SemiBold Italic.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B SemiBold Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Bold.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Bold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuclidCircularB";
+  src: local("Euclid Circular B Bold Italic.ttf"), url("/src/assets/fonts/euclid-b/Euclid Circular B Bold Italic.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
 }
