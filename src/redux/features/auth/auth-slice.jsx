@@ -48,29 +48,6 @@ export const login = createAsyncThunk('auth/login', async (credentials, {rejectW
     }
 });
 
-// Step 2: Verify OTP with temp token → returns real token + user data
-export const verifyOtp = createAsyncThunk('auth/verifyOtp', async ({token, otp}, {rejectWithValue}) => {
-    try {
-        const {data} = await AUTH_API.verifyOtp(token, {otp});
-        const user = data.data || data.user;
-        const loginToken = data.token;
-        localStorage.setItem(CONSTANTS.RUDERALIS_VENDOR_AUTH_DATA, JSON.stringify(user));
-        localStorage.setItem(CONSTANTS.RUDERALIS_VENDOR_TOKEN, JSON.stringify(loginToken));
-        return {user, token: loginToken};
-    } catch (e) {
-        return rejectWithValue({message: e.response?.data?.message || e.message});
-    }
-});
-
-// Resend OTP
-export const resendOtp = createAsyncThunk('auth/resendOtp', async (data, {rejectWithValue}) => {
-    try {
-        const response = await AUTH_API.resendOtp(data);
-        return response.data;
-    } catch (e) {
-        return rejectWithValue({message: e.response?.data?.message || e.message});
-    }
-});
 
 export const register = createAsyncThunk('auth/register', async (userData, {rejectWithValue}) => {
     try {
@@ -122,8 +99,7 @@ export const changePassword = createAsyncThunk('auth/changePassword', async (pas
 const initialState = {
     user: getAuthFromStorage(),
     token: getTokenFromStorage(),
-    tempToken: null,
-    otpRequired: false,
+
     loading: false,
     error: null,
     message: null
@@ -136,8 +112,6 @@ const authSlice = createSlice({
         logout: (state) => {
             state.user = null;
             state.token = null;
-            state.tempToken = null;
-            state.otpRequired = false;
             state.error = null;
             state.message = null;
             localStorage.removeItem(CONSTANTS.RUDERALIS_VENDOR_AUTH_DATA);
@@ -145,7 +119,6 @@ const authSlice = createSlice({
         },
         clearError: (state) => { state.error = null; },
         clearMessage: (state) => { state.message = null; },
-        resetOtpFlow: (state) => { state.tempToken = null; state.otpRequired = false; }
     },
     extraReducers: (builder) => {
         builder
@@ -155,27 +128,8 @@ const authSlice = createSlice({
                 state.loading = false;
                 state.user = action.payload.user;
                 state.token = action.payload.token;
-                state.tempToken = null;
-                state.otpRequired = false;
             })
             .addCase(login.rejected, (state, action) => { state.loading = false; state.error = action.payload?.message || 'Login failed'; })
-
-            // Login step 2 — verify OTP
-            .addCase(verifyOtp.pending, (state) => { state.loading = true; state.error = null; })
-            .addCase(verifyOtp.fulfilled, (state, action) => {
-                state.loading = false;
-                state.user = action.payload.user;
-                state.token = action.payload.token;
-                state.tempToken = null;
-                state.otpRequired = false;
-                state.message = null;
-            })
-            .addCase(verifyOtp.rejected, (state, action) => { state.loading = false; state.error = action.payload?.message || 'OTP verification failed'; })
-
-            // Resend OTP
-            .addCase(resendOtp.pending, (state) => { state.loading = true; state.error = null; })
-            .addCase(resendOtp.fulfilled, (state, action) => { state.loading = false; state.message = action.payload?.message || 'OTP resent'; })
-            .addCase(resendOtp.rejected, (state, action) => { state.loading = false; state.error = action.payload?.message || 'Failed to resend OTP'; })
 
             // Register
             .addCase(register.pending, (state) => { state.loading = true; state.error = null; })
@@ -204,6 +158,6 @@ const authSlice = createSlice({
     }
 });
 
-export const {logout, clearError, clearMessage, resetOtpFlow} = authSlice.actions;
+export const {logout, clearError, clearMessage} = authSlice.actions;
 export const selectAuth = state => state.auth;
 export default authSlice.reducer;

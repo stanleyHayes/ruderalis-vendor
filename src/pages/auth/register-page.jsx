@@ -58,7 +58,7 @@ const RegisterPage = () => {
 
     useEffect(() => {
         if (message) {
-            navigate("/auth/account-verification");
+            navigate("/auth/login");
         }
     }, [message, navigate]);
 

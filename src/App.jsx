@@ -34,8 +34,6 @@ import LoginPage from "./pages/auth/login-page";
 import RegisterPage from "./pages/auth/register-page";
 import ForgotPasswordPage from "./pages/auth/forgot-password-page";
 import ResetPasswordPage from "./pages/auth/reset-password-page";
-import AccountVerificationPage from "./pages/auth/account-verification-page";
-import VerificationAcknowledgmentPage from "./pages/auth/verification-acknowledgment-page";
 import AccessoriesPage from "./pages/accessories/accessories-page";
 import DisputesPage from "./pages/disputes/disputes-page";
 import DisputeDetailPage from "./pages/disputes/dispute-detail-page";
@@ -114,8 +112,6 @@ function App() {
                     <Route path="/auth/register" element={<RegisterPage/>}/>
                     <Route path="/auth/forgot-password" element={<ForgotPasswordPage/>}/>
                     <Route path="/auth/reset-password" element={<ResetPasswordPage/>}/>
-                    <Route path="/auth/verify" element={<AccountVerificationPage/>}/>
-                    <Route path="/auth/verified" element={<VerificationAcknowledgmentPage/>}/>
 
                     {/* Info (public) */}
                     <Route path="/about" element={<AboutPage/>}/>
