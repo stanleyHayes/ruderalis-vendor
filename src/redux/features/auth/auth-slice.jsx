@@ -28,14 +28,21 @@ const getTokenFromStorage = () => {
     }
 };
 
-// Step 1: Login with credentials → returns temp token + sends OTP to email
+// Login — single step, returns token + user
 export const login = createAsyncThunk('auth/login', async (credentials, {rejectWithValue}) => {
     try {
         const {data} = await AUTH_API.login({
             usernameOrEmailOrPhone: credentials.usernameOrEmailOrPhone,
             password: credentials.password
         });
-        return {message: data.message, tempToken: data.token};
+        const result = data.data || data;
+        const user = result.user || result.data || result;
+        const token = result.token || data.token;
+        if (token) {
+            localStorage.setItem(CONSTANTS.RUDERALIS_VENDOR_AUTH_DATA, JSON.stringify(user));
+            localStorage.setItem(CONSTANTS.RUDERALIS_VENDOR_TOKEN, JSON.stringify(token));
+        }
+        return {user, token};
     } catch (e) {
         return rejectWithValue({message: e.response?.data?.message || e.message});
     }
@@ -142,13 +149,14 @@ const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            // Login step 1 — get temp token
+            // Login
             .addCase(login.pending, (state) => { state.loading = true; state.error = null; })
             .addCase(login.fulfilled, (state, action) => {
                 state.loading = false;
-                state.tempToken = action.payload.tempToken;
-                state.otpRequired = true;
-                state.message = action.payload.message;
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+                state.tempToken = null;
+                state.otpRequired = false;
             })
             .addCase(login.rejected, (state, action) => { state.loading = false; state.error = action.payload?.message || 'Login failed'; })
 

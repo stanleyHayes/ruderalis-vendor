@@ -1,4 +1,5 @@
-const BASE_SERVER_URL = 'http://localhost:8080/api/v1/vendor';
+// const BASE_SERVER_URL = 'http://localhost:8080/api/v1/vendor';
+const BASE_SERVER_URL = 'https://ruderalis-api.onrender.com/api/v1/vendor';
 const RUDERALIS_VENDOR_THEME_VARIANT = 'RUDERALIS_VENDOR_THEME_VARIANT';
 const RUDERALIS_VENDOR_TOKEN = 'RUDERALIS_VENDOR_TOKEN';
 const RUDERALIS_VENDOR_AUTH_DATA = 'RUDERALIS_VENDOR_AUTH_DATA';
