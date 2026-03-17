@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532D"/>
+      <stop offset="50%" stop-color="#166534"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <!-- Stylized cannabis leaf -->
+  <g transform="translate(32,32)" fill="#fff" opacity="0.95">
+    <!-- Center leaf -->
+    <path d="M0-20C-3-12-2-6 0-1 2-6 3-12 0-20Z"/>
+    <!-- Left leaves -->
+    <path d="M-14-14C-10-8-6-4 0-1-4-6-8-10-14-14Z"/>
+    <path d="M-18-4C-12-2-6-1 0-1-4-3-10-3-18-4Z"/>
+    <!-- Right leaves -->
+    <path d="M14-14C10-8 6-4 0-1 4-6 8-10 14-14Z"/>
+    <path d="M18-4C12-2 6-1 0-1 4-3 10-3 18-4Z"/>
+    <!-- Stem -->
+    <path d="M-1-1C-1 4-0.5 10 0 16 0.5 10 1 4 1-1Z"/>
+  </g>
+</svg>
